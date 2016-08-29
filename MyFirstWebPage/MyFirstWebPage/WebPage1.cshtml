@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1>Hello World</h1>
+
+    <!--Single Statement Block-->
+
+        @{ var total = 7; }
+        @{ var myMessage = "Hello World"; }
+
+    <!--Inline Expression-->
+
+        <p>The value of your account is: @total</p>
+        <p>The value of my message is: @myMessage</p>
+      
+
+    <!--Multi Line Block-->
+
+        @{ var greeting = "Welcome to our site!";
+            var weekDay = DateTime.Now.DayOfWeek;
+            var greetingMessage = greeting + "Today is: " + weekDay;
+
+        }
+
+    </body>
+
+</html>
