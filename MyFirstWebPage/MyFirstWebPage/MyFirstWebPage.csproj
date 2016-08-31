@@ -91,13 +91,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Shared\_Layout.cshtml" />
+    <Content Include="default.cshtml" />
+    <Content Include="Shared\_Header.cshtml" />
+    <Content Include="Shared\_Footer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Shared\style.css" />
     <Content Include="WebPage1.cshtml" />
+    <Content Include="WebPage2.cshtml" />
+    <Content Include="WebPage3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />

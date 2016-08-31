@@ -1,0 +1,31 @@
+﻿@*These are comments in Razor - Demo of arrays*@
+
+@{
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+@{ 
+    <h3>Team Members</h3>
+    string[] teamMembers = { "Lori", "Jace", "Oscar", "Katie" };
+    Array.Reverse(teamMembers);
+    foreach (var person in teamMembers)
+        {
+            <p>@person</p>
+        }
+
+ }
+
+            <p>The length of the array is @teamMembers.Length</p>
+            <p>Oscar is in position @Array.IndexOf(teamMembers, "Oscar") blah blah</p>
+            <p>The array item in position 2 is @teamMembers[2]</p>
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+
+    </body>
+</html>

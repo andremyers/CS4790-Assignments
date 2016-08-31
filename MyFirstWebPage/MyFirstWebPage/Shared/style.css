@@ -1,0 +1,10 @@
+﻿*{margin: 0px; padding: 0px;}
+.wrapper {margin: 0 auto 0 auto; width: 85%}
+.content {background-color: #000; color:#fff; float: right; width: 75%;}
+.content, aside {
+    min-height: 500px
+}
+
+header, footer {background-color:#913c3a; height: 100px; clear: both;}
+aside {width: 25%; background-color: #4f81bd; float:left;}
+footer{text-align:center; color:#fff;}

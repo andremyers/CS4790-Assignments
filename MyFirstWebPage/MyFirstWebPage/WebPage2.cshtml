@@ -1,0 +1,22 @@
+﻿@if (IsPost)
+{
+    <text>
+
+     The time is: <br/> @DateTime.Now <br/>
+     @DateTime.Now is the <em>current</em> time.
+
+    </text>
+}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <form method="post" action="">
+            <input type="submit" name="submit" value="submit" />
+        </form>
+    </body>
+</html>
