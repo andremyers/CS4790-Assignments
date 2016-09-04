@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+
+    <!--Display a table of the Pictures directory-->
+
+    @{
+        var windowsDir = Path.GetPathRoot(Environment.SystemDirectory); //Get drive Windows is running on
+        var userID = "Users\\" + Environment.UserName;  //Get users login name
+        string[] files = Directory.GetFileSystemEntries(windowsDir + userID + @"\Pictures");  //Store directory listing in an array
+    }
+
+            <h2>@windowsDir@userID\Pictures</h2>
+
+    <table>
+        @{
+            foreach (string file in files)
+            {
+                <tr>
+                    <td>@file</td>
+                </tr>
+            }
+
+        }
+    </table>
+
+
+

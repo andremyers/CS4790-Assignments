@@ -1,0 +1,104 @@
+﻿/*Styles Sheet*/
+
+*
+{
+    margin: 0px;
+    padding: 0px;
+} 
+
+.wrapper
+{
+    margin: 0 auto 0 auto;
+    width: 85%;
+}
+
+.content
+{
+    background-color: white;
+    color: black;
+    float: right;
+    width: 80%;
+}
+
+.content, aside
+{
+    min-height: 500px;
+} 
+
+header
+{
+    background-color:#000;
+    color:black;
+    height: 75px;
+    clear: both
+} 
+
+footer
+{
+    background-color:white;
+    color:#000;
+    height: 40px;
+    clear: both;
+    text-align: center;
+    color: black;
+} 
+
+aside
+{
+    width: 20%;
+    background-color: #000;
+    float: left
+} 
+
+ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fffa9e;
+}
+
+li
+{
+    float: left;
+}
+
+li a
+{
+    display:block;
+    color: black;
+    text-align: center;
+    padding: 24px 26px;
+    text-decoration:none;
+    font-size:x-large;
+}
+
+li a:hover:not(.active)
+{
+    background-color: black;
+    color:white;
+}
+
+.active 
+{
+    background-color: white;
+}
+
+text
+{
+    border-left: 10px;
+    background-color:black;
+    color:white;
+    text-wrap:normal;
+}
+
+table, td, th
+{
+    border-width:1px;
+    border-style:dotted;
+    border-color:red;
+    height:30px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2}

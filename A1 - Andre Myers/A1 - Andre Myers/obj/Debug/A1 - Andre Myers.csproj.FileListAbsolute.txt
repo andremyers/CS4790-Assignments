@@ -1,0 +1,31 @@
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\roslyn\csc.exe
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\roslyn\vbc.exe
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\roslyn\VBCSCompiler.exe
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\A1 - Andre Myers.dll.config
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\A1 - Andre Myers.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\A1 - Andre Myers.pdb
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\System.Web.Helpers.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\System.Web.Razor.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\System.Web.WebPages.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\System.Web.WebPages.Razor.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\System.Web.Helpers.xml
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\System.Web.Razor.xml
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\System.Web.WebPages.xml
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\bin\System.Web.WebPages.Razor.xml
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\obj\Debug\A1 - Andre Myers.csprojResolveAssemblyReference.cache
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\obj\Debug\A1 - Andre Myers.dll
+C:\Users\Andre\Source\Repos\CS4790-Assignments\A1 - Andre Myers\A1 - Andre Myers\obj\Debug\A1 - Andre Myers.pdb
