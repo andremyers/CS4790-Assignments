@@ -94,6 +94,7 @@
     <Content Include="Shared\_Layout.cshtml" />
     <Content Include="default.cshtml" />
     <Content Include="Pictures.cshtml" />
+    <Content Include="Form.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

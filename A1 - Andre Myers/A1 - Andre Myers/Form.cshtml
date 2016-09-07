@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+@section sidebar{
+    <text>
+        This page has a form to enter information in.
+    </text>
+}
+
+<!--Display a form to fill out-->
+
+@{ var msg = "";
+    Validation.Add("FirstName", Validator.Required("First Name is required"), Validator.StringLength(10, 3, "Name must be greater than 3 characters but less than 10"));
+    Validation.Add("LastName", Validator.Required("Last Name is required"), Validator.StringLength(10, 3, "Name must be greater than 3 characters but less than 10"));
+
+    if (IsPost)
+    {
+        var FirstName = Request["FirstName"];
+        var LastName = Request["LastName"];
+        if (Validation.IsValid()) { msg = "Welcome " + FirstName + " " + LastName; }
+        else
+        {
+            Validation.AddFormError("Sorry there were errors in your submission");
+        }
+    } }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    @msg
+    @Html.ValidationSummary(true)
+    <form method="post">
+        <input type="text" placeholder="First Name" name="FirstName" />
+        @Html.ValidationMessage("firstname") <input type="text" placeholder="Last Name" name="LastName" />
+        @Html.ValidationMessage("lastname") <input type="submit" />
+    </form>
+</body>
+</html>
+

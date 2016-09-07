@@ -9,20 +9,19 @@
 .wrapper
 {
     margin: 0 auto 0 auto;
-    width: 85%;
+    width: 80%;
 }
 
 .content
 {
     background-color: white;
-    color: black;
     float: right;
     width: 80%;
 }
 
 .content, aside
 {
-    min-height: 500px;
+    min-height: 800px;
 } 
 
 header
@@ -40,14 +39,16 @@ footer
     height: 40px;
     clear: both;
     text-align: center;
-    color: black;
+    color: lightslategray;
+    font-size:large;
 } 
 
 aside
 {
     width: 20%;
-    background-color: #000;
-    float: left
+    background-color: #000970;
+    float: left;
+    display:block;
 } 
 
 ul
@@ -56,7 +57,7 @@ ul
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #fffa9e;
+    background-color: #808080;
 }
 
 li
@@ -66,39 +67,50 @@ li
 
 li a
 {
-    display:block;
+    display: block;
     color: black;
     text-align: center;
     padding: 24px 26px;
-    text-decoration:none;
-    font-size:x-large;
+    text-decoration: none;
+    font-size: x-large;
 }
 
 li a:hover:not(.active)
 {
     background-color: black;
-    color:white;
+    color: white;
 }
 
-.active 
+.active
 {
     background-color: white;
 }
 
 text
 {
-    border-left: 10px;
-    background-color:black;
-    color:white;
-    text-wrap:normal;
+    background-color: #000970;
+    display:block;
+    color: white;
+    text-wrap: normal;
+    margin: 20px;
+    font-size:large;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 table, td, th
 {
-    border-width:1px;
-    border-style:dotted;
-    border-color:red;
-    height:30px;
+    border-width: 1px;
+    border-style: dotted;
+    border-color: red;
+    height: 30px;
 }
 
 tr:nth-child(even) {background-color: #f2f2f2}
+
+div.scroll /* Makes a scroll bar for longer output */
+{
+    width: 600px;
+    height: 750px;
+    overflow:auto;
+    margin: 40px;
+}
