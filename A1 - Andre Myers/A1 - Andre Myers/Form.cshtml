@@ -4,26 +4,39 @@
 
 @section sidebar{
     <text>
-        This page has a form to enter information in.
+        This page has a form to enter information, and pass it to another page.
     </text>
 }
 
-<!--Display a form to fill out-->
+<!--Error messages if input is not valid-->
 
-@{ var msg = "";
-    Validation.Add("FirstName", Validator.Required("First Name is required"), Validator.StringLength(10, 3, "Name must be greater than 3 characters but less than 10"));
-    Validation.Add("LastName", Validator.Required("Last Name is required"), Validator.StringLength(10, 3, "Name must be greater than 3 characters but less than 10"));
+    @{ var msg = "";
+        Validation.Add("FirstName", Validator.Required("First Name is required"), Validator.StringLength(10, 3, "First name must be greater than 2 characters but less than 10"));
+        Validation.Add("LastName", Validator.Required("Last Name is required"), Validator.StringLength(10, 3, "Last name must be greater than 2 characters but less than 10"));
+        Validation.Add("Address", Validator.Required("Address is required"), Validator.StringLength(20, 5, "Address must be greater than 5 characters but less than 20"));
+        Validation.Add("City", Validator.Required("City is required"), Validator.StringLength(20, 3, "City must be greater than 3 characters but less than 20"));
+        Validation.Add("State", Validator.Required("State is required"), Validator.StringLength(20, 3, "State must be greater than 2 characters but less than 20"));
+        Validation.Add("Zip", Validator.Required("Zip is required"), Validator.StringLength(10, 5, "Zip code must be greater than 4 characters but less than 10"));
 
-    if (IsPost)
-    {
-        var FirstName = Request["FirstName"];
-        var LastName = Request["LastName"];
-        if (Validation.IsValid()) { msg = "Welcome " + FirstName + " " + LastName; }
-        else
+
+        if (IsPost)
         {
-            Validation.AddFormError("Sorry there were errors in your submission");
+            var firstName = Request["FirstName"];
+            var lastName = Request["LastName"];
+
+            if (Validation.IsValid())
+                {
+                    msg = "Information submitted successfully!  Thank you  " + firstName + " " + lastName;
+                }
+                else
+                {
+                    Validation.AddFormError("Sorry there were errors in your submission");
+                }
         }
-    } }
+    }
+
+
+<!--Display a form to fill out-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,14 +44,67 @@
     <meta charset="utf-8" />
     <title></title>
 </head>
-<body>
-    @msg
-    @Html.ValidationSummary(true)
-    <form method="post">
-        <input type="text" placeholder="First Name" name="FirstName" />
-        @Html.ValidationMessage("firstname") <input type="text" placeholder="Last Name" name="LastName" />
-        @Html.ValidationMessage("lastname") <input type="submit" />
-    </form>
-</body>
-</html>
+  <body>
+    <h3 class="col-lg-offset-3">Please fill out your information.</h3>
 
+        @msg
+        @Html.ValidationSummary(true)
+
+      <div class="form-horizontal">
+
+          <form method="get" action="/FormInfo.cshtml">
+
+              <fieldset>
+                  <div class="form-group">
+                      <label class="col-lg-2 control-label" for="FirstName">First Name</label>
+                      <div class="col-lg-4">
+                          <input class="form-control" name="FirstName" type="text" />
+                      </div>
+                      @Html.ValidationMessage("FirstName")
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-lg-2 control-label" for="LastName">Last Name</label>
+                      <div class="col-lg-4">
+                          <input class="form-control" name="LastName" type="text" />
+                      </div>
+                      @Html.ValidationMessage("LastName")
+                  </div>
+                  <div class="form-group">
+                      <label class="col-lg-2 control-label" for="Address">Address</label>
+                      <div class="col-lg-4">
+                          <input class="form-control" name="Address" type="text" />
+                      </div>
+                      @Html.ValidationMessage("Address")
+                  </div>
+                  <div class="form-group">
+                      <label class="col-lg-2 control-label" for="City">City</label>
+                      <div class="col-lg-4">
+                          <input class="form-control" name="City" type="text" />
+                      </div>
+                      @Html.ValidationMessage("City")
+                  </div>
+                  <div class="form-group">
+                      <label class="col-lg-2 control-label" for="State">State</label>
+                      <div class="col-lg-4">
+                          <input class="form-control" name="State" type="text" />
+                      </div>
+                      @Html.ValidationMessage("State")
+                  </div>
+                  <div class="form-group">
+                      <label class="col-lg-2 control-label" for="Zip">Zip</label>
+                      <div class="col-lg-4">
+                          <input class="form-control" name="Zip" type="number" />
+                      </div>
+                      @Html.ValidationMessage("Zip")
+                  </div>
+
+                  <div class="btn btn-block">
+                      <input class="btn btn-success" type="submit" />
+                  </div>
+
+              </fieldset>
+          </form>
+      </div>
+    </body>
+</html>

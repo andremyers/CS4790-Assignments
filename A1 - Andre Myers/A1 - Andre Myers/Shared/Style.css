@@ -8,16 +8,16 @@
 
 .wrapper
 {
-    margin: 0 auto 0 auto;
+    margin: auto auto auto auto;
     width: 80%;
 }
 
-.content
+/*.content
 {
     background-color: white;
     float: right;
     width: 80%;
-}
+}*/
 
 .content, aside
 {
@@ -28,25 +28,23 @@ header
 {
     background-color:#000;
     color:black;
-    height: 75px;
     clear: both
 } 
 
 footer
 {
-    background-color:white;
     color:#000;
     height: 40px;
     clear: both;
     text-align: center;
     color: lightslategray;
-    font-size:large;
+    font-size:small;
 } 
 
 aside
 {
     width: 20%;
-    background-color: #000970;
+    background-color: gray;
     float: left;
     display:block;
 } 
@@ -68,10 +66,8 @@ li
 li a
 {
     display: block;
-    color: black;
     text-align: center;
     padding: 24px 26px;
-    text-decoration: none;
     font-size: x-large;
 }
 
@@ -79,16 +75,17 @@ li a:hover:not(.active)
 {
     background-color: black;
     color: white;
+    text-decoration:none;
 }
 
-.active
+/*.active
 {
     background-color: white;
-}
+}*/
 
 text
 {
-    background-color: #000970;
+    background-color: gray;
     display:block;
     color: white;
     text-wrap: normal;
@@ -99,18 +96,43 @@ text
 
 table, td, th
 {
-    border-width: 1px;
+    /*border-width: 1px;
     border-style: dotted;
-    border-color: red;
+    border-color: red;*/
     height: 30px;
 }
 
-tr:nth-child(even) {background-color: #f2f2f2}
+/*tr:nth-child(even) {background-color: #f2f2f2}*/
 
 div.scroll /* Makes a scroll bar for longer output */
 {
-    width: 600px;
+    width: 500px;
     height: 750px;
     overflow:auto;
-    margin: 40px;
+}
+
+form
+{
+    margin:20px 20px 20px 20px;
+}
+
+.validation-summary-errors
+{
+  color:red;
+  font-weight:bold;
+  width:30%;
+  margin-left:150px;
+}
+
+.field-validation-error
+{
+   color:red;
+   font-weight:bold;
+}
+
+.input-validation-error
+{
+  color:red;
+  font-weight:bold;
+  background-color:pink;
 }

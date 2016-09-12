@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+@section sidebar{
+    <text>
+        This page displays the information that was submitted into the form.
+    </text>
+}
+
+@{  var FirstName = Request["FirstName"];
+    var LastName = Request["LastName"];
+    var Address = Request["Address"];
+    var City = Request["City"];
+    var State = Request["State"];
+    var Zip = Request["Zip"];
+ }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+    <body>
+        <h2 class="col-lg-offset-3">The information you entered was:</h2><br />
+        <div style="font-size:x-large">
+            <table class="table-responsive col-lg-offset-1 col-lg-3">
+
+                <tr><td class="text-danger">@FirstName @LastName</td></tr>
+                <tr><td class="text-danger">@Address</td></tr>
+                <tr><td class="text-danger">@City, @State  @Zip</td></tr>
+
+            </table>
+
+        </div>
+    </body>
+</html>

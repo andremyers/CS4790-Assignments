@@ -4,11 +4,14 @@
     Layout = "~/Shared/_Layout.cshtml";
 }
 
-<p>This is the content</p>
+<div span="2">
+    @section sidebar{
+        <text>
+            This is the first assignment for CS4790.
+        </text>
+    }
+</div>
 
-@section sidebar{
-   <text>
-       This is the first assignment for CS4790.
-   </text>
-}
-
+<div class="col-lg-offset-3">
+    <h1 class="text-justify">This is my first website for CS4790.</h1>
+</div>
