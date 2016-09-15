@@ -16,7 +16,7 @@
     Validation.Add("Address", Validator.Required("Address is required"), Validator.StringLength(20, 5, "Address must be greater than 5 characters but less than 20"));
     Validation.Add("City", Validator.Required("City is required"), Validator.StringLength(20, 3, "City must be greater than 3 characters but less than 20"));
     Validation.Add("State", Validator.Required("State is required"), Validator.StringLength(20, 3, "State must be greater than 2 characters but less than 20"));
-    Validation.Add("Zip", Validator.Required("Zip is required"), Validator.StringLength(10, 5, "Zip code must be greater than 4 characters but less than 10"));
+    Validation.Add("Zip", Validator.Required("Zip is required"), Validator.Range(0, 99999, "Zip code must be 5 digits"));
 
 
     if (IsPost)
@@ -41,68 +41,76 @@
     <title></title>
 </head>
 <body>
-    <h3 class="col-lg-offset-3">Please fill out your information.</h3>
 
     @msg
     @Html.ValidationSummary(true)
 
-    <div class="form-horizontal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-push-11">
+                <h3>Please fill out your information.</h3>
 
-        <form method="get" action="/FormInfo.cshtml">
-            <fieldset>
-                <div class="form-group">
-                    <label class="col-lg-2 control-label" for="FirstName">First Name</label>
-                    <div class="col-lg-4">
-                        <input class="form-control" name="FirstName" placeholder="First Name" type="text" value="@Request["FirstName"]" />
-                    </div>
-                    @Html.ValidationMessage("FirstName")
-                </div>
+                <div class="form-horizontal">
 
-                <div class="form-group">
-                    <label class="col-lg-2 control-label" for="LastName">Last Name</label>
-                    <div class="col-lg-4">
-                        <input class="form-control" name="LastName" placeholder="Last Name" type="text" value="@Request["LastName"]" />
-                    </div>
-                    @Html.ValidationMessage("LastName")
-                </div>
+                    <form method="get" action="/FormInfo.cshtml">
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="FirstName">First Name</label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" name="FirstName" placeholder="First Name" type="text" value="" />
+                                </div>
+                                @Html.ValidationMessage("FirstName")
+                            </div>
 
-                <div class="form-group">
-                    <label class="col-lg-2 control-label" for="Address">Address</label>
-                    <div class="col-lg-4">
-                        <input class="form-control" name="Address" placeholder="Address" type="text" value="@Request["Address"]" />
-                    </div>
-                    @Html.ValidationMessage("Address")
-                </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="LastName">Last Name</label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" name="LastName" placeholder="Last Name" type="text" value="" />
+                                </div>
+                                @Html.ValidationMessage("LastName")
+                            </div>
 
-                <div class="form-group">
-                    <label class="col-lg-2 control-label" for="City">City</label>
-                    <div class="col-lg-4">
-                        <input class="form-control" name="City" placeholder="City" type="text" value="@Request["City"]" />
-                    </div>
-                    @Html.ValidationMessage("City")
-                </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="Address">Address</label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" name="Address" placeholder="Address" type="text" value="" />
+                                </div>
+                                @Html.ValidationMessage("Address")
+                            </div>
 
-                <div class="form-group">
-                    <label class="col-lg-2 control-label" for="State">State</label>
-                    <div class="col-lg-4">
-                        <input class="form-control" name="State" placeholder="State" type="text" value="@Request["State"]" />
-                    </div>
-                    @Html.ValidationMessage("State")
-                </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="City">City</label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" name="City" placeholder="City" type="text" value="" />
+                                </div>
+                                @Html.ValidationMessage("City")
+                            </div>
 
-                <div class="form-group">
-                    <label class="col-lg-2 control-label" for="Zip">Zip</label>
-                    <div class="col-lg-4">
-                        <input class="form-control" name="Zip" placeholder="Zip" type="number" value="@Request["Zip"]" />
-                    </div>
-                    @Html.ValidationMessage("Zip")
-                </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="State">State</label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" name="State" placeholder="State" type="text" value="" />
+                                </div>
+                                @Html.ValidationMessage("State")
+                            </div>
 
-                <div class="btn btn-block">
-                    <input class="btn btn-success" type="submit" value="Submit" />
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="Zip">Zip</label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" name="Zip" placeholder="Zip" type="number" value="" />
+                                </div>
+                                @Html.ValidationMessage("Zip")
+                            </div>
+
+                            <div class="btn btn-block glyphicon-floppy-disk">
+                                <input class="btn btn-success" type="submit" value="Submit" />
+                            </div>
+
+                        </fieldset>
+                    </form>
                 </div>
-            </fieldset>
-        </form>
+            </div>
+        </div>
     </div>
 </body>
 </html>
