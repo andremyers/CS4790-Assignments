@@ -1,0 +1,65 @@
+﻿/*Styles Sheet*/
+
+*
+{
+    margin: 0px;
+    padding: 0px;
+} 
+
+.wrapper
+{
+    margin: auto auto auto auto;
+    width: 70%;
+}
+
+.content
+{
+    min-height: 800px;
+} 
+
+footer
+{
+    color:#000;
+    height: 40px;
+    clear: both;
+    text-align: center;
+    color: lightslategray;
+    font-size:small;
+} 
+
+div.scroll /* Makes a scroll bar for longer output */
+{
+    width: 500px;
+    height: 750px;
+    overflow:auto;
+}
+
+.validation-summary-errors
+{
+  color:red;
+  font-weight:bold;
+  width:30%;
+  margin-left:150px;
+}
+
+.field-validation-error
+{
+   color:red;
+   font-weight:bold;
+}
+
+.input-validation-error
+{
+  color:red;
+  font-weight:bold;
+  background-color:pink;
+}
+
+@media (max-width: 767px)
+{
+	.img-responsive
+	{
+		max-width: 30%;
+		min-width: 300px;
+	}
+}

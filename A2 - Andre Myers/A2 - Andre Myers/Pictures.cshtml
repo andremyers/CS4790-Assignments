@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+@{
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+<!--Display a table of the Pictures directory-->
+
+@{
+    var windowsDir = Path.GetPathRoot(Environment.SystemDirectory); //Get drive Windows is running on
+    var userID = "Users\\" + Environment.UserName;  //Get users login name
+    string[] files = Directory.GetFileSystemEntries(windowsDir + userID + @"\Pictures");  //Store directory listing in an array
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2 center-block">
+
+            <div class="scroll">
+                <h2 class="text-center text-success">@windowsDir@userID\Pictures</h2>
+
+                <table class="table table-responsive table-hover">
+                    @{
+                        foreach (string file in files)
+                        {
+                            <tr>
+                                @*<td><a href = "@Href(file)"></a>@file</td>*@   @*Trying to link to the file, not working...*@
+                                <td class="glyphicon glyphicon-picture"> @file</td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </div><!--container-->
+        </div><!--row-->
+    </div>
+</div>
