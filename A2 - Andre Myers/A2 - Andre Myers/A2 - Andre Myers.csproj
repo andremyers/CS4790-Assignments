@@ -94,7 +94,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\P5270513 - Cropped 12 x 18.jpg" />
+    <Content Include="Images\Arch.jpg" />
+    <Content Include="Images\Delicate Arch.jpg" />
+    <Content Include="Images\Statue.jpg" />
+    <Content Include="Images\Niagara.jpg" />
+    <Content Include="Images\Flower.jpg" />
+    <Content Include="Images\Antelope Trial 12x18-1.jpg" />
+    <Content Include="Images\Bear.jpg" />
+    <Content Include="Images\Boat 11x14.jpg" />
+    <Content Include="Images\Bridge.jpg" />
+    <Content Include="Images\Sunset.jpg" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Shared\Style.css" />
@@ -103,6 +112,7 @@
     <Content Include="Form.cshtml" />
     <Content Include="Pictures.cshtml" />
     <Content Include="About.cshtml" />
+    <Content Include="DisplayPictures.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
