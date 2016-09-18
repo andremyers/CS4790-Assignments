@@ -113,6 +113,7 @@
     <Content Include="Pictures.cshtml" />
     <Content Include="About.cshtml" />
     <Content Include="DisplayPictures.cshtml" />
+    <Content Include="Parks.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
