@@ -1,0 +1,77 @@
+﻿@{
+    var db = Database.Open("MOVIE_DB");
+    var SearchTerm = "";
+    var SQLSearch = "SELECT * FROM Movie WHERE MovieTitle LIKE @0 OR MovieReleaseDate LIKE @0 OR MovieRating LIKE @0 OR MovieGenre LIKE @0 ORDER BY MovieTitle";
+    var SQLDefault = "SELECT * FROM Movie";
+    var dataSearch = db.Query(SQLSearch, SearchTerm);
+
+    dataSearch = db.Query(SQLDefault);
+
+    if (IsPost)
+    {
+        try
+        {
+            SearchTerm = Request["SearchTerm"];
+            dataSearch = db.Query(SQLSearch, "%" + SearchTerm + "%");
+            RenderPage("~/Search.cshtml");
+        }
+        catch (Exception ex)
+        {
+            Response.Write(ex);
+        }
+    }
+}
+
+
+<div class="container">
+    <div class="row">
+
+        <form class="navbar-form navbar-left" method="post">
+            <fieldset>
+                <div class="form-group" id="form-group">
+                    <input type="text" class="form-control" placeholder="Search" value="@SearchTerm" name="SearchTerm">
+                </div>
+                <button style="margin-top:12px" type="submit" class="btn btn-danger">Submit</button>
+            </fieldset>
+        </form>
+
+        <div class="col-lg-12 center-block">
+
+            <h2 class="text-success">Movies in Search</h2>
+
+            <div>
+                <table class="table table-hover table-bordered table-responsive">
+                    <thead>
+                        <tr class="h4 text-primary">
+                            <th>Movie Title</th>
+                            <th>Year Released</th>
+                            <th>Rating</th>
+                            <th>Genre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (dataSearch.Count() > 0)
+                        {
+                            foreach (var movie in dataSearch)
+                            {
+                                <tr class="h4">
+                                    <td><a href="/movie/@movie.MovieTitle">@movie.MovieTitle</a></td>
+                                    <td>@movie.MovieReleaseDate</td>
+                                    <td>@movie.MovieRating</td>
+                                    <td>@movie.MovieGenre</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr class="h1 alert alert-danger text-center">
+                                <td>No Records Found!</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

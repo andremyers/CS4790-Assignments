@@ -1,3 +1,39 @@
 ﻿@{
-    
+    var db = Database.Open("MOVIE_DB");
+
+    var MovieTitle = Context.GetRouteValue("MovieTitle");
+
+    if (MovieTitle == null)
+    {
+        Response.Redirect("~/");
+    }
+
+    var SQLREAD = "SELECT * FROM Movie WHERE MovieTitle=@0";
+    var data = db.QuerySingle(SQLREAD, MovieTitle);
+    var Id = data.Id;
+    var MoviePlot = data.MoviePlot;
+    var MovieReleaseDate = data.MovieReleaseDate;
+    var MovieGenre = data.MovieGenre;
+
+
+    Page.MovieTitle = data.MovieTitle;
+    Page.MovieGenre = data.MovieGenre;
+    Page.MovieReleaseDate = data.MovieReleaseDate;
+    Page.MovieRating = data.MovieRating;
+
 }
+
+<div class="container">
+    <div class="row">
+        <div class="well well-lg">
+            <span class="text-primary h2">@data.MovieTitle   ( @data.MovieReleaseDate)</span><br/>
+            <label class="badge alert-success"> Rated  @data.MovieRating</label>
+            <div class="panel panel-body">
+                <span class="text-justify h4">@Html.Raw(MoviePlot)</span>
+                <a href="~/Update.cshtml?id=@Id" class="btn btn-info">Edit Movie</a>
+                @*<a href="~/Delete.cshtml?id=&returnurl=@Request.Url.AbsoluteUri" class="btn btn-danger">Delete Movie</a>*@
+                <a href="~/Delete.cshtml?id=@Id&returnurl=@Request.Url.AbsoluteUri" class="btn btn-danger">Delete Movie</a>
+            </div>
+        </div>
+    </div>
+</div>

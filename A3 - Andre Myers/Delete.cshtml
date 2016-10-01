@@ -1,3 +1,47 @@
 ﻿@{
-    
+    var Id = Request["Id"];
+    if (!Id.IsInt())
+    {
+        Response.Redirect("~/");
+    }
+
+    var db = Database.Open("MOVIE_DB");
+    var SQLDELETE = "DELETE FROM Movie WHERE Id = @0";
+    var SQLREAD = "SELECT * FROM Movie WHERE Id = @0";
+    var data = db.QuerySingle(SQLREAD, Id);
+    var MovieTitle = data.MovieTitle;
+
+    if (IsPost)
+    {
+        try
+        {
+            db.Execute(SQLDELETE, Id);
+            Response.Redirect("~/");
+        }
+        catch (Exception ex)
+        {
+            Response.Write(ex.Message);
+        }
+    }
+
 }
+
+
+<script type="text/javascript">
+    function goBack() {
+        window.location = "@Request["returnurl"]";
+    }
+</script>
+
+<div class="container">
+    <div class="row">
+        <form method="post">
+            <div class="well well-lg">
+                <h2 class="text-success">Delete Movie</h2><br />
+                <span class="h4">Are you sure you wish to delete</span><span class="h4 text-warning"> @MovieTitle?</span><br />
+                <input class="btn btn-danger btn-lg" type="submit" value="Yes" />
+                <input class="btn btn-info btn-lg" type="button" value="No" onclick="goBack();" />
+            </div>
+        </form>
+    </div>
+</div>

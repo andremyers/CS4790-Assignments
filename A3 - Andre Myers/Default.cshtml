@@ -3,7 +3,7 @@
     Page.Title = "Home Page";
 
     var db = Database.Open("MOVIE_DB");
-    var SQLREAD = "SELECT * FROM Movie";
+    var SQLREAD = "SELECT * FROM Movie ORDER BY MovieTitle";
     var data = db.Query(SQLREAD);
 
 }
@@ -12,16 +12,34 @@
 <body>
     <div class="container">
         <div class="row">
+            <div class="col-lg-12 center-block">
 
-            <h2>Movies in Database</h2>
+                <h2 class="text-success">Movies in Database</h2>
 
-            <div>
-                <ul>
-                    @foreach (var movie in data)
-                    {
-                        <li class="h5 text-uppercase"><a href="/movie/@movie.MovieTitle">@movie.MovieTitle</a></li>
-                    }
-                </ul>
+                <div>
+                    <table class="table table-hover table-bordered table-responsive">
+                        <thead>
+                            <tr class="h4 text-primary">
+                                <th>Movie Title</th>
+                                <th>Year Released</th>
+                                <th>Rating</th>
+                                <th>Genre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var movie in data)
+                            {
+                                <tr class="h4">
+                                    <td><a href="/movie/@movie.MovieTitle">@movie.MovieTitle</a></td>
+                                    <td>@movie.MovieReleaseDate</td>
+                                    <td>@movie.MovieRating</td>
+                                    <td>@movie.MovieGenre</td>
+                                </tr>
+                
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>@Page.Title - Movie Database</title>
     <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
-    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.10.3.js"></script>
@@ -15,38 +15,39 @@
 </head>
 <body>
 
-    <div class="container">
-        <div class="row">
-            <div class="wrapper col-lg-12">
-                <header class="page-header">
-                    <section class="col-lg-12">
-                        <ul class="nav navbar-fixed-top nav-tabs">
-                            <li><a href="~/default.cshtml" class="h4 alert-success">Home</a></li>
-                            <li><a href="~/Create.cshtml" class="h4 alert-success">Add Movie</a></li>
-                            @*<li><a href="~/Parks.cshtml" class="h3 text-primary">Utah Parks</a></li>
-                                <li><a href="~/Form.cshtml" class="h3 text-primary">Register</a></li>
-                                <li><a href="~/About.cshtml" class="h3 text-primary">About Me</a></li>*@
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="~/Default.cshtml" class="h4 alert alert-success">Home</a></li>
+                        <li><a href="~/Create.cshtml" class="h4 alert alert-success">Add Movie</a></li>
+                        <li><a href="~/Search.cshtml" class="h4 alert alert-success">Search Movies</a></li>
                         </ul>
-                    </section>
-                </header>
-            </div><!-- row -->
-        </div><!-- container -->
-
-
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix JustifyCenter">
-                @RenderBody()
-            </section>
-        </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="navbar-fixed-bottom">&copy; @DateTime.Now.Year - Andre Myers</p>
-                </div>
+                        
+                </div><!-- navbar header -->
+            </div><!-- container -->
             </div>
-        </footer>
-        @RenderSection("Scripts", required: false)
-    </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+
+                <div>
+                    @RenderSection("featured", required: false)
+                    <section class="content-wrapper main-content clear-fix JustifyCenter">
+                        @RenderBody()
+                    </section>
+                </div>
+                <footer>
+                    <div class="content-wrapper">
+                        <div class="float-left">
+                            <p class="navbar-fixed-bottom">&copy; @DateTime.Now.Year - Andre Myers</p>
+                        </div>
+                    </div>
+                </footer>
+                @RenderSection("Scripts", required: false)
+            </div>
+        </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 ﻿@{
     var MovieTitle = "";
-    var MovieReleaseDate = "";
+    var MovieReleaseDate = 1900;
     var MovieRating = "";
     var MovieGenre = "";
     var MoviePlot = "";
@@ -8,7 +8,7 @@
     if (IsPost)
     {
         MovieTitle = Request["MovieTitle"];
-        MovieReleaseDate = Request["MovieReleaseDate"];
+        MovieReleaseDate = int.Parse(Request["MovieReleaseDate"]);
         MovieRating = Request["MovieRating"];
         MovieGenre = Request["MovieGenre"];
         MoviePlot = Request.Unvalidated["MoviePlot"];
@@ -23,7 +23,12 @@
             {
                 var db = Database.Open("MOVIE_DB"); //Open Database Connection
                 db.Execute(SQLInsert, MovieTitle, MovieReleaseDate, MovieRating, MovieGenre, MoviePlot);
-                Response.Write("Movie Information Saved!");
+                <h3 class="alert alert-danger text-center">Movie Data Saved!</h3>
+                MovieTitle = "";
+                MovieReleaseDate = 1900;
+                MovieRating = "";
+                MovieGenre = "";
+                MoviePlot = "";
             }
             catch (Exception ex)
             {
@@ -36,10 +41,9 @@
 
 <div class="container">
     <iv class="row">
-        <div class="content-wrapper">
         <form class="form-horizontal well well-lg" method="post">
             <fieldset>
-                <legend class="text-info Bold">Add Movie Data</legend>
+                <legend class="text-info"><b>Add Movie Data</b></legend>
                 @Html.ValidationSummary(true)
                 <div class="col-lg-4">
                     <h4 class="text-info">Movie Title</h4>
@@ -48,8 +52,8 @@
                 </div>
 
                 <div class="col-lg-3">
-                    <h4 class="text-info">Release Date</h4>
-                    <input class="center-block col-lg-12" type="date" value="@MovieReleaseDate" name="MovieReleaseDate" />
+                    <h4 class="text-info">Year Released</h4>
+                    <input class="center-block col-lg-12" type="number" value="@MovieReleaseDate" name="MovieReleaseDate" min="1900" max="2100"/>
                     <label class="label-danger">@Html.ValidationMessage("MovieReleaseDate")</label>
                 </div>
 
@@ -82,7 +86,6 @@
                 </div>
             </fieldset>
         </form>
-</div>
 </div>
 
 <script src="/ckeditor/ckeditor.js"></script>

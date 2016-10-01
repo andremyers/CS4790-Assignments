@@ -1,3 +1,138 @@
 ﻿@{
-    
+    var Id = Request["Id"];
+
+    if (!Id.IsInt())
+    {
+        Response.Redirect("~/");
+    }
+
+    var db = Database.Open("MOVIE_DB");
+    var SQLREAD = "SELECT * FROM Movie WHERE Id = @0";
+    var data = db.QuerySingle(SQLREAD, Id);
+
+    var MovieTitle = data.MovieTitle;
+    var MovieReleaseDate = int.Parse(data.MovieReleaseDate);
+    var MovieGenre = data.MovieGenre;
+    var MovieRating = data.MovieRating;
+    var MoviePlot = data.MoviePlot;
+
+    if (IsPost)
+    {
+        MovieTitle = Request["MovieTitle"];
+        MovieReleaseDate = int.Parse(Request["MovieReleaseDate"]);
+        MovieGenre = Request["MovieGenre"];
+        MovieRating = Request["MovieRating"];
+        MoviePlot = Request.Unvalidated["MoviePlot"];
+
+        Validation.RequireFields("MovieTitle", "MovieReleaseDate", "MovieGenre", "MovieRating", "MoviePlot");
+
+        var SQLUPDATE = "UPDATE Movie SET MovieTitle=@0, MovieReleaseDate=@1, MovieGenre=@2, MovieRating=@3, MoviePlot=@4 WHERE Id=@5";
+
+        if (Validation.IsValid())
+        {
+            try
+            {
+                db.Execute(SQLUPDATE, MovieTitle, MovieReleaseDate, MovieGenre, MovieRating, MoviePlot, Id);
+                <h3 class="alert alert-danger text-center">Movie Data Saved!</h3>
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+        }
+    }
 }
+
+<div class="container">
+    <iv class="row">
+        <form class="form-horizontal well well-lg" method="post">
+            <fieldset>
+                <legend class="text-danger"><b>Modify Movie Data</b></legend>
+                @Html.ValidationSummary(true)
+                <div class="col-lg-4">
+                    <h4 class="text-info">Movie Title</h4>
+                    <input class="center-block col-lg-12" type="text" value="@MovieTitle" name="MovieTitle" />
+                    <label class="label-danger">@Html.ValidationMessage("MovieTitle")</label>
+                </div>
+
+                <div class="col-lg-3">
+                    <h4 class="text-info">Year Released</h4>
+                    <input class="center-block col-lg-12" type="number" value="@MovieReleaseDate" min="1900" max="2100" name="MovieReleaseDate" />
+                    <label class="label-danger">@Html.ValidationMessage("MovieReleaseDate")</label>
+                </div>
+
+                <div class="col-lg-3">
+                    <h4 class="text-info">Genre</h4>
+                    <input class="center-block col-lg-12" type="text" value="@MovieGenre" name="MovieGenre" />
+                    <label class="label-danger">@Html.ValidationMessage("MovieGenre")</label>
+                </div>
+
+                <div class="form-group-lg col-lg-2">
+                    <h4 class="text-info">Rating</h4>
+                    <div class="col-lg-12">
+
+                        @{ if (MovieRating == "G")
+                            {
+                                <label class="center-block"><input type="radio" name="MovieRating" id="G" value="G" checked /> G </label>
+                            }
+                            else
+                            {
+                                <label class="center-block"><input type="radio" name="MovieRating" id="G" value="G" /> G </label>
+                            }
+                            if (MovieRating == "PG")
+                            {
+                                <label class="center-block"><input type="radio" name="MovieRating" id="PG" value="PG" checked /> PG </label>
+                            }
+                            else
+                            {
+                                <label class="center-block"><input type="radio" name="MovieRating" id="PG" value="PG" /> PG </label>
+                            }
+                            if (MovieRating == "PG-13")
+                            {
+                                <label class="center-block"><input type="radio" name="MovieRating" id="PG-13" value="PG-13" checked /> PG-13 </label>
+                            }
+                            else
+                            {
+                                <label class="center-block"><input type="radio" name="MovieRating" id="PG-13" value="PG-13" /> PG-13 </label>
+                            }
+                            if (MovieRating == "R")
+                            {
+                                <label class="center-block"><input type="radio" name="MovieRating" id="R" value="R" checked /> R </label>
+                            }
+                            else
+                            {
+                                <label class="center-block"><input type="radio" name="MovieRating" id="R" value="R" /> R </label>
+                            }
+                            if (MovieRating == "NC-17")
+                            {
+                                <label class="center-block"><input type="radio" name="MovieRating" id="NC-17" value="NC-17" checked /> NC-17 </label>
+                            }
+                            else
+                            {
+                                <label class="center-block"><input type="radio" name="MovieRating" id="NC-17" value="NC-17" /> NC-17 </label>
+                            }
+                            if (MovieRating == "Not Rated")
+                            {
+                                <label class="center-block"><input type="radio" name="MovieRating" id="Not Rated" value="Not Rated" checked /> Not Rated </label>
+                            }
+                            else
+                            {
+                                <label class="center-block"><input type="radio" name="MovieRating" id="Not Rated" value="Not Rated" /> Not Rated </label>
+                            }
+                        }
+
+                        <label class="label-danger">@Html.ValidationMessage("MovieRating")</label>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <h4 class="text-info">Plot Summary</h4>
+                    <textarea class="ckeditor" name="MoviePlot">@MoviePlot</textarea>
+                    <label class="label-danger">@Html.ValidationMessage("MoviePlot")</label>
+                    <input class="col-lg-2 btn-lg btn-success pull-right" type="submit" />
+                </div>
+            </fieldset>
+        </form>
+</div>
+
+<script src="/ckeditor/ckeditor.js"></script>
