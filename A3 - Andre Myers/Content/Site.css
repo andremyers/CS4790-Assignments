@@ -132,13 +132,11 @@ footer {
         margin: 0;
     }
 
-div #bs-example-navbar-collapse-1
-{
-    margin-left:100px;
-    margin-right:100px;
+div #bs-example-navbar-collapse-1 {
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
-div #form-group
-{
-    margin-top:12px;
+div #form-group {
+    margin-top: 12px;
 }

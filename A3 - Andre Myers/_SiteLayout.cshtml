@@ -23,31 +23,31 @@
                         <li><a href="~/Default.cshtml" class="h4 alert alert-success">Home</a></li>
                         <li><a href="~/Create.cshtml" class="h4 alert alert-success">Add Movie</a></li>
                         <li><a href="~/Search.cshtml" class="h4 alert alert-success">Search Movies</a></li>
-                        </ul>
-                        
+                    </ul>
+
                 </div><!-- navbar header -->
             </div><!-- container -->
-            </div>
-        </nav>
-
-        <div class="container">
-            <div class="row">
-
-                <div>
-                    @RenderSection("featured", required: false)
-                    <section class="content-wrapper main-content clear-fix JustifyCenter">
-                        @RenderBody()
-                    </section>
-                </div>
-                <footer>
-                    <div class="content-wrapper">
-                        <div class="float-left">
-                            <p class="navbar-fixed-bottom">&copy; @DateTime.Now.Year - Andre Myers</p>
-                        </div>
-                    </div>
-                </footer>
-                @RenderSection("Scripts", required: false)
-            </div>
         </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+
+            <div>
+                @RenderSection("featured", required: false)
+                <section class="content-wrapper main-content clear-fix JustifyCenter">
+                    @RenderBody()
+                </section>
+            </div>
+            <footer>
+                <div class="content-wrapper">
+                    <div class="float-left">
+                        <p class="navbar-fixed-bottom">&copy; @DateTime.Now.Year - Andre Myers</p>
+                    </div>
+                </div>
+            </footer>
+            @RenderSection("Scripts", required: false)
+        </div>
+    </div>
 </body>
 </html>
